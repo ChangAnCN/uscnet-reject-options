@@ -108,3 +108,21 @@ cd src && PYTHONPATH=. python ../tests/test_selective.py && PYTHONPATH=. python 
 ## License
 
 MIT (see `LICENSE`). The datasets remain under their own terms.
+
+## Cached predictions, checkpoints and result tables
+
+Release [v1.0](https://github.com/ChangAnCN/uscnet-reject-options/releases/tag/v1.0) provides, as separate archives:
+
+* `predictions.tar` (563 MB): deterministic and MC-dropout predictions for
+  every cohort and seed (`results/preds/*.npz`), plus the SelectiveNet
+  selector scores on the test split. With these, every analysis script runs
+  without a GPU.
+* `checkpoints_backbone.tar` (136 MB): the five DenseNet121 checkpoints.
+* `checkpoints_selectivenet.tar` (1.2 GB): SelectiveNet, unweighted
+  SelectiveNet, CB-SelectiveNet and CB-SelectiveNet (λ/2) checkpoints and
+  training logs.
+* `results_tables.tar` (1 MB): every CSV/JSON the paper reads.
+
+Extract them under the working root: `tar -xf predictions.tar -C results/`,
+`tar -xf checkpoints_*.tar -C ckpt/`, `tar -xf results_tables.tar -C results/`.
+SHA-256 checksums are attached to the release.
