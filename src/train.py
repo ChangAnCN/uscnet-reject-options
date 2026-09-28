@@ -16,6 +16,7 @@ from torch.utils.data import DataLoader
 
 from common import (LABELS, CXRDataset, DenseNet121Multi, load_cache, load_meta,
                     to_input)
+import paths
 
 
 def evaluate(model, loader, device, mc=False):
@@ -106,5 +107,5 @@ if __name__ == "__main__":
     ap.add_argument("--wd", type=float, default=1e-5)
     ap.add_argument("--dropout", type=float, default=0.2)
     ap.add_argument("--workers", type=int, default=16)
-    ap.add_argument("--out", default="/NHNHOME/uscnet/ckpt")
+    ap.add_argument("--out", default=paths.CKPT)
     main(ap.parse_args())

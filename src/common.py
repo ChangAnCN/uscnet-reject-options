@@ -7,6 +7,7 @@ import pandas as pd
 import torch
 import torch.nn as nn
 from torch.utils.data import Dataset
+import paths
 
 cv2.setNumThreads(0)
 
@@ -16,7 +17,7 @@ LABELS = [
     "Emphysema", "Fibrosis", "Pleural_Thickening", "Hernia",
 ]
 L2I = {l: i for i, l in enumerate(LABELS)}
-PROC = "/NHNHOME/uscnet/data/proc"
+PROC = paths.PROC
 CACHE_SIZE, CROP = 256, 224
 IMAGENET_MEAN = torch.tensor([0.485, 0.456, 0.406]).view(1, 3, 1, 1)
 IMAGENET_STD = torch.tensor([0.229, 0.224, 0.225]).view(1, 3, 1, 1)

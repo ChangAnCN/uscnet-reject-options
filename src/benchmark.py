@@ -29,9 +29,10 @@ import selective as S
 from analyze import (SEEDS, TERMS, apply_combination, fit_combination, load,
                      raw_scores, valid_rows)
 from common import LABELS
+import paths
 
-OUT = "/NHNHOME/uscnet/results"
-CKPT = "/NHNHOME/uscnet/ckpt"
+OUT = paths.RESULTS
+CKPT = paths.CKPT
 COV = np.round(np.arange(0.20, 1.0001, 0.05), 4)
 
 SCORES = ["MSP", "Entropy", "MC-entropy", "MC-variance", "MC-BALD",

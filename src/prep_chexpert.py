@@ -19,6 +19,7 @@ import numpy as np
 import pandas as pd
 import pyarrow.parquet as pq
 from PIL import Image
+import paths
 
 CACHE_SIZE = 256
 # CheXpert finding -> CXR8 label. Only findings that exist in both taxonomies.
@@ -76,8 +77,8 @@ def build(files, out_prefix, out_dir, workers=48):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--raw", default="/NHNHOME/uscnet/data/chexpert_raw/data")
-    ap.add_argument("--out", default="/NHNHOME/uscnet/data/proc")
+    ap.add_argument("--raw", default=os.path.join(paths.DATA, "chexpert_raw", "data"))
+    ap.add_argument("--out", default=paths.PROC)
     ap.add_argument("--workers", type=int, default=48)
     a = ap.parse_args()
     build(sorted(glob.glob(os.path.join(a.raw, "validation-*.parquet"))),

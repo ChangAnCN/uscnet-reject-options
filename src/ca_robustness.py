@@ -14,8 +14,9 @@ import pandas as pd
 
 import imbalance_selective as I
 from robustness import prepare, masks_for
+import paths
 
-OUT = "/NHNHOME/uscnet/results"
+OUT = paths.RESULTS
 FINE = np.round(np.arange(0.02, 1.0001, 0.02), 4)
 WINDOW = (0.50, 1.00)
 

@@ -15,8 +15,9 @@ import imbalance_selective as I
 import selective as S
 from analyze import COV, OPMASK, SEEDS, load, raw_scores, valid_rows
 from common import LABELS
+import paths
 
-OUT = "/NHNHOME/uscnet/results"
+OUT = paths.RESULTS
 SCORES = ["Cue disagreement (symmetric)", "Cue contradiction"]
 
 

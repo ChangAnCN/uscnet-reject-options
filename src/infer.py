@@ -19,8 +19,9 @@ import torch
 
 from common import (CACHE_SIZE, CROP, IMAGENET_MEAN, IMAGENET_STD, LABELS,
                     DenseNet121Multi, load_cache, load_meta)
+import paths
 
-PROC = "/NHNHOME/uscnet/data/proc"
+PROC = paths.PROC
 
 
 def cohort(name):
@@ -105,8 +106,8 @@ def main(a):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--ckpt", default="/NHNHOME/uscnet/ckpt")
-    ap.add_argument("--out", default="/NHNHOME/uscnet/results/preds")
+    ap.add_argument("--ckpt", default=paths.CKPT)
+    ap.add_argument("--out", default=paths.PREDS)
     ap.add_argument("--cohorts", nargs="+",
                     default=["val", "test", "chexpert_expert", "chexpert_ext"])
     ap.add_argument("--n_mc", type=int, default=20)

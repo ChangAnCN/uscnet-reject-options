@@ -31,9 +31,10 @@ from sklearn.metrics import (average_precision_score, cohen_kappa_score,
 import imbalance_selective as I
 import selective as S
 from common import LABELS
+import paths
 
-PRED = "/NHNHOME/uscnet/results/preds"
-OUT = "/NHNHOME/uscnet/results"
+PRED = paths.PREDS
+OUT = paths.RESULTS
 # One coverage grid for every AURC in the paper: overall coverage 20-100% in
 # steps of 5% (the same grid as benchmark.py and robustness.py). AURC is the
 # trapezoidal area divided by the span, i.e. the mean risk over the grid; the
@@ -139,7 +140,7 @@ def run_target(name, t, args):
     print(f"\n{'='*72}\nTARGET: {name}\n{'='*72}", flush=True)
     cue_idx = [i for i in range(len(LABELS)) if i != t]
 
-    meta = pd.read_csv("/NHNHOME/uscnet/data/proc/cxr14_meta.csv")
+    meta = pd.read_csv(os.path.join(paths.PROC, "cxr14_meta.csv"))
     Ytr_lab = meta.loc[meta.split == "train", LABELS].values.astype(np.float64)
     assoc = S.CueBank(t, cue_idx).fit_association(Ytr_lab)
 

@@ -32,9 +32,10 @@ import selective as S
 from analyze import (SEEDS, TERMS, apply_combination, fit_combination, load,
                      raw_scores, valid_rows)
 from common import LABELS
+import paths
 
-OUT = "/NHNHOME/uscnet/results"
-PRED = "/NHNHOME/uscnet/results/preds"
+OUT = paths.RESULTS
+PRED = paths.PREDS
 COV = np.round(np.arange(0.20, 1.0001, 0.05), 4)
 J80 = int(np.argmin(np.abs(COV - 0.8)))
 COST = 3.0                       # FN:FP cost ratio for the asymmetric analysis

@@ -11,6 +11,7 @@ from concurrent.futures import ProcessPoolExecutor
 import numpy as np
 import pandas as pd
 from PIL import Image
+import paths
 
 LABELS = [
     "Atelectasis", "Cardiomegaly", "Effusion", "Infiltration", "Mass",
@@ -97,9 +98,9 @@ def build_cache(meta, png_dir, out_dir, workers=48):
 
 if __name__ == "__main__":
     ap = argparse.ArgumentParser()
-    ap.add_argument("--raw", default="/NHNHOME/uscnet/data/cxr14_raw/data")
-    ap.add_argument("--png", default="/NHNHOME/uscnet/data/cxr14_png")
-    ap.add_argument("--out", default="/NHNHOME/uscnet/data/proc")
+    ap.add_argument("--raw", default=os.path.join(paths.DATA, "cxr14_raw", "data"))
+    ap.add_argument("--png", default=os.path.join(paths.DATA, "cxr14_png"))
+    ap.add_argument("--out", default=paths.PROC)
     ap.add_argument("--workers", type=int, default=48)
     a = ap.parse_args()
     m = build_metadata(a.raw, a.out)

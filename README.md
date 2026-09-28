@@ -42,10 +42,17 @@ tests/
 
 ## Paths
 
-All scripts assume a working root of `/NHNHOME/uscnet` with `data/`, `ckpt/`,
-`results/` and `logs/` beneath it (the machine this was developed on keeps
-the large files on a separate volume). Create that directory or symlink it
-to your own location before running anything.
+Data, checkpoints, results and logs live under one working root, with
+`data/`, `ckpt/`, `results/` and `logs/` beneath it. The root is read from
+the environment variable `USCNET_ROOT` and defaults to the repository
+directory, so a fresh clone needs no configuration:
+
+```
+export USCNET_ROOT=/path/to/large/volume   # optional
+```
+
+The Python scripts take the layout from `src/paths.py`; the shell scripts in
+`scripts/` resolve the same root.
 
 ## Data
 

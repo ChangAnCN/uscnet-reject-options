@@ -13,8 +13,9 @@ from sklearn.metrics import average_precision_score, roc_auc_score
 
 import selective as S
 from common import LABELS
+import paths
 
-RES = "/NHNHOME/uscnet/results"
+RES = paths.RESULTS
 PRED = f"{RES}/preds"
 SEEDS = [42, 123, 3407, 7, 2024]
 

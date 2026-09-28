@@ -40,6 +40,7 @@ from torch.utils.data import DataLoader
 
 from common import (LABELS, CXRDataset, DenseNet121Multi, load_cache, load_meta,
                     to_input)
+import paths
 
 
 class SelectiveNet(nn.Module):
@@ -252,5 +253,5 @@ if __name__ == "__main__":
     ap.add_argument("--alpha", type=float, default=0.5)
     ap.add_argument("--beta", type=float, default=1.0)
     ap.add_argument("--workers", type=int, default=40)
-    ap.add_argument("--out", default="/NHNHOME/uscnet/ckpt")
+    ap.add_argument("--out", default=paths.CKPT)
     main(ap.parse_args())

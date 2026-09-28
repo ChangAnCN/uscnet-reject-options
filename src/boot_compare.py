@@ -20,8 +20,9 @@ import selective as S
 from analyze import (COV, OPMASK, PRED, SEEDS, TERMS, apply_combination,
                      fit_combination, load, raw_scores, valid_rows)
 from common import LABELS
+import paths
 
-OUT = "/NHNHOME/uscnet/results"
+OUT = paths.RESULTS
 
 
 def prepare(target):
