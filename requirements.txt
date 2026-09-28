@@ -1,0 +1,17 @@
+torch>=2.7          # cu128 wheels: pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
+torchvision
+numpy
+pandas
+scikit-learn
+scipy
+matplotlib
+seaborn
+pillow
+tqdm
+huggingface_hub
+datasets
+timm
+pyarrow
+opencv-python-headless
+statsmodels
+pydicom
