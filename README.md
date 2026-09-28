@@ -31,6 +31,7 @@ src/
   robustness.py           threshold rules, cost ratio, case-level and seed x case bootstraps
   cue_association.py      symmetric vs signed cue scores, within-class associations
   ca_robustness.py        CA metrics under three integration ranges
+  risk_bootstrap.py       paired case-level bootstrap of AUGRC, CA-AURC and CA-AUGRC
 scripts/
   setup_env.sh            conda environment (PyTorch cu128 for compute capability 10.0)
   dl_cxr14.py, dl_chexpert*.py, extract.sh   dataset download / extraction
@@ -77,6 +78,7 @@ python benchmark.py --targets Pneumonia Effusion --selectivenet
 python robustness.py
 python cue_association.py
 python ca_robustness.py
+python risk_bootstrap.py
 ```
 
 Hardware used: one NVIDIA B200; training one seed takes about 20 minutes,
