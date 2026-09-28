@@ -104,3 +104,7 @@ all fitted on the validation split of the same seed.
 ```bash
 cd src && PYTHONPATH=. python ../tests/test_selective.py && PYTHONPATH=. python ../tests/test_imbalance.py
 ```
+
+## License
+
+MIT (see `LICENSE`). The datasets remain under their own terms.
